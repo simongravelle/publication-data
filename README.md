@@ -91,7 +91,7 @@ The reason behind this effect can be understood by looking at the water-salt int
 
 ![alt text](figures/MDSimulations4.png)
 
-Ions adsorb at the solid walls, thus making the surface effectively rough. Since ions are charged, water molecules strongly polarize next to the adsorbed ions, leading to amplified NMR signature of the adsorption of the water molecule. In addition, in the case of the NaCl surface, more sodium ions adsorbed in comparison to chloride ions, which create a charged surface, and thus a charged area next to the charge surface, which is also known to modify the properties of water more than a neutral wall.
+Ions adsorb at the solid walls, thus making the surface effectively rough. Since ions are charged, water molecules strongly polarize next to the adsorbed ions, leading to amplified NMR signature of the adsorption of the water molecule. In addition, in the case of the NaCl surface, more sodium ions adsorbed in comparison to chloride ions, which create a charged surface, and thus a charged liquid area  (i.e. filled with more counter-ions) next to the charged solid surface, which is also known to modify the properties of water more than a neutral walls.
 
 ### What to remember for this study
 
