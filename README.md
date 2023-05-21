@@ -51,7 +51,7 @@ For simple systems, like bulk solutions, comparison between experiments and simu
 
 ![alt text](figures/BulkComparisons.png)
 
-
+We also compared experiments with simulations in the case of bulk NaCl and Na2SO4 electrolyte (see the previous figure). The agreement is not perfect, which could be due to the fact that force field for the salt were calibrated in order to reproduce thermodynamic properties of the salts, but *T<sub>1</sub>* also depends on dynamics properties like viscosity.   
 
 
 
