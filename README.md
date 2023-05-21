@@ -28,7 +28,11 @@ with the experimental group of Ilmenau (Germany). The goals of the investigation
 - **better understand the properties of water confined within salt crusts**, which are disordered porous media made of salt,
 - **combine NMR experiments**, which allow for probing the dynamics of water within a porous medium, **with molecular simulations**, a numerical method which allow to resolve the trajectories of water molecules, and their interaction with the salt surface.
 
-### The particularity of salt crusts
+### Why studying salt crust?
+
+Salt crusts can form at the surface of soil due to evaporation. In some arid regions, soil salinization is a real problem, and one needs better understanding of the formation of salt crust, as well as on the properties of water within the salt crusts, as it governs its evaporation.
+
+### The particularity of solid salt surfaces
 
 When a fluid is in contact with a solid surface, its properties near the solid surface are modified. In general, the fluid viscosity, density, or dielectric permeability are different within a few nanometer distance from the surface, due to the solid-liquid interactions.
 
@@ -95,7 +99,9 @@ Ions adsorb at the solid walls, thus making the surface effectively rough. Since
 
 ### What to remember for this study
 
+There are two main points that one can keep from this study:
 
+- First, although NMR experiments and MD simulations can't be directly compared due to the differences in system size and complexity, 
 
 
 ![alt text](figures/Credit.png)
