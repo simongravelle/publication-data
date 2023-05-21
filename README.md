@@ -8,7 +8,7 @@ Publication Date: May 19, 2023
 This repository is associated with [our publication](https://doi.org/10.1021/acs.langmuir.3c00036) in Langmuir.
 
 <p float="left">
-  <a href=""><img src="figures/TOC.svg" width="100%" /></a>
+  <a href=""><img src="figures/TOC.jpg" width="100%" /></a>
 </p>
 
 ## Data and script
