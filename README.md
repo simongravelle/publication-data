@@ -79,7 +79,11 @@ For both solid surface, a structuring of the liquid is visible over several wate
 
 What is interesting is to have a look at the typical orientation of the water molecules next to the interface, which we do by introducing the parameter *S*, that is equal to 1 if the molecules are aligned with *z*, -0.5 if they are normal to *z*, and 0 if they are randomly oriented. The orientation profiles clearly show that water molecules are strongly polarized next to the solid surface of Na<sub>2</sub>SO<sub>4</sub>, and not so much in the case of NaCl, which could justify why the adsorption-desorption events of molecules entering and leaving the interface are visible only in the Na<sub>2</sub>SO<sub>4</sub> spectra, not in the NaCl spectra.
 
+### MD simulations: electrolyte in slit pore
 
+So far, simulations were done using pure water as the fluid, but in a real salt crust, one expects the fluid to be an electrolyte with a relatively large concentration in ions. If we do the same simulations but increase the salt concentration progressively, it is clear that the spectra is impacted, particularly in the intermediate regime (Area II), and for both NaCl and Na<sub>2</sub>SO<sub>4</sub>:
+
+![alt text](figures/MDSimulations3.png)
 
 
 ![alt text](figures/Credit.png)
