@@ -101,7 +101,7 @@ Ions adsorb at the solid walls, thus making the surface effectively rough. Since
 
 There are two main points that one can keep from this study:
 
-- First, although NMR experiments and MD simulations can't be directly compared due to the differences in system size and complexity, *MD still provides meaningful information about the fluid-solid interface*, which in return help to better understand the experimental results.
+- First, although NMR experiments and MD simulations can't be directly compared due to the differences in system size and complexity, *MD still provides meaningful information about the fluid-solid interface*, which in return helps in better understanding the experimental results.
 - Second, *interfaces between water and salt surface are extremely complex* due to the continuum adsorption and desorption of the ions, which creates a particular landscape for the water molecules, increase the impact of the interface on the surface water, and by consequent impacts the NMR relaxation time. 
 
 ![alt text](figures/Credit.png)
