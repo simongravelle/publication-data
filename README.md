@@ -22,7 +22,7 @@ Python and GROMACS scripts are hosted in the DaRUS repository of the university 
 This page describes the investigation we conducted as part of the SFB 1313, in collaboration 
 with the experimental group of Ilmenau in Germany. The goals of the investigation were to:
 
-- better understand the properties of water confined within salt crusts, which are disordered porous media made of salt
-- combine NMR experiments, which allow for probing the dynamics of water within a porous medium, with molecular simulations, a numerical method which allow to resolve the trajectories of water molecules, and their interaction with the salt surface
+- **better understand the properties of water confined within salt crusts**, which are disordered porous media made of salt
+- **combine NMR experiments**, which allow for probing the dynamics of water within a porous medium, **with molecular simulations**, a numerical method which allow to resolve the trajectories of water molecules, and their interaction with the salt surface
 
 
