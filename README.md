@@ -64,11 +64,11 @@ NMR experiments performed on the salt crusts revealed a lower value of *T<sub>1<
 
 ### MD simulations: pure water in slit pore
 
-MD simulations of pure water in a slit pore were first performed. The solid walls were made either of NaCl or Na<sub>2</sub>SO<sub>4</sub> to match with the experiment, see the image bellow.
+MD simulations of pure water in a slit pore were first performed using GROMACS, input scripts can be downloaded [here](https://doi.org/10.18419/darus-3180). The solid walls were made either of NaCl or Na<sub>2</sub>SO<sub>4</sub> to match with the experiment, see the image bellow.
 
 ![alt text](figures/MDSimulations1.png)
 
-
+*T<sub>1</sub>* spectrum were extracted using [NMRforMD](https://github.com/simongravelle/nmrformd). The spectrum reveal a difference between the two salts, with *T<sub>1</sub>* at low frequency being lower in the case of Na<sub>2</sub>SO<sub>4</sub>. In the case of NaCl, strikingly, values of *T<sub>1</sub>* at low frequencies were almost equal to the bulk water values (dashed line), suggesting that NaCl slit walls have little to no impact on the properties of the confined water. This was a surprise to us.
 
 
 
