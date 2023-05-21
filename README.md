@@ -18,7 +18,7 @@ investigate the properties of water confined withing salt crust using both NMR e
 Python and GROMACS scripts are hosted in the DaRUS repository of the university of Stuttgart: see here for
 [bulk systems](https://doi.org/10.18419/darus-3179), and here for [slit pores](https://doi.org/10.18419/darus-3180).
 
-## In short
+## A short overview of the goals and results
 
 ### Goals
 
