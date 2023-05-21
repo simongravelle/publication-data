@@ -35,10 +35,11 @@ When a fluid is in contact with a solid surface, its properties near the solid s
 
 In the case were the solid surface is made of salt, as is the case for porous salt crusts, it creates a systems that is really unique, because salt is present within both the fluid, in the form of dissolved ions, and also constitute the solid surface. In addition, the adsorption of ions at the solid surface creates rough and locally charged landscape which in turn impacts the properties of water within the interface layer, as we will see below.
 
-### NMR: experiments versus molecular dynamics
+### NMR experiments versus molecular dynamics simulations
 
+Here, both NMR experiments and molecular dynamics simulations were conducted. And although both methods can be used to compare the same quantities, the so-called NMR relaxation time, or *T<sub>1</sub>*.
 
-
+![alt text](figures/MDvsExperiments.png)
 
 
 
