@@ -22,7 +22,7 @@ Python and GROMACS scripts are hosted in the DaRUS repository of the university 
 ### Goals
 
 This page describes the investigation we conducted as part of the SFB 1313, in collaboration 
-with the experimental group of Ilmenau in Germany. The goals of the investigation were to:
+with the experimental group of Ilmenau (Germany). The goals of the investigation were to:
 
 - **better understand the properties of water confined within salt crusts**, which are disordered porous media made of salt,
 - **combine NMR experiments**, which allow for probing the dynamics of water within a porous medium, **with molecular simulations**, a numerical method which allow to resolve the trajectories of water molecules, and their interaction with the salt surface.
@@ -39,9 +39,11 @@ In the case were the solid surface is made of salt, as is the case for porous sa
 
 Here, both NMR experiments and molecular dynamics simulations were conducted. And although both methods can be used to compare the same quantities, the so-called NMR relaxation time, or *T<sub>1</sub>*.
 
+In the case of the experiments, we used macroscopic salt crusts, which are porous medium made of salt and containing water. The system is exposed to a large magnetic field, and the typical time the spins of the atoms, here the hydrogen atoms of the water molecules, need to align with the imposed magnetic field is measured. This characteristic time is called *T<sub>1</sub>*, and is typically of the order of a few seconds for liquid water at ambient temperature. The reason why *T<sub>1</sub>* is of interest here, is that it depends on the molecular motions of the water molecules within the salt crust, so measuring *T<sub>1</sub>* is a direct way of probing the rotational and translation motion of the molecules inside the pores. 
+
 ![alt text](figures/MDvsExperiments.png)
 
-
+For the molecular dynamics simulations, however, *T<sub>1</sub>* canno't be measured the same way since atoms are modelled as a simple point with a partial charge, but no spin. So instead of measuring *T<sub>1</sub>* directly, the opposite route is followed: the molecular motion is probed, and *T<sub>1</sub>* is calculated. Technically, one has to measure the distance and orientation between all the hydrogen atoms over time, inject those quantities in a correlation function, and then calculate its spectrum using Fourier transform. The complete path and formula is described in the [article](https://doi.org/10.1021/acs.langmuir.3c00036), and the Python code we used for the calculation was made available on Github, see [NMRforMD](https://github.com/simongravelle/nmrformd).
 
 
 
