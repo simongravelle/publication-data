@@ -5,7 +5,8 @@ Langmuir 2023, XXXX, XXX, XXX-XXX
 Authors: Simon Gravelle, Sabina Haber-Pohlmeier, Carlos Mattea, Siegfried Stapf, Christian Holm, and Alexander Schlaich
 Publication Date: May 19, 2023
 
-This repository is associated with [our publication](https://doi.org/10.1021/acs.langmuir.3c00036) in Langmuir.
+This repository is associated with [our 2023 publication](https://doi.org/10.1021/acs.langmuir.3c00036) in Langmuir, in which we
+investigate the properties of water confined withing salt crust using both NMR experiments and molecular dynamics simulations.
 
 <p float="left">
   <a href=""><img src="figures/TOC.jpg" width="100%" /></a>
@@ -13,7 +14,8 @@ This repository is associated with [our publication](https://doi.org/10.1021/acs
 
 ## Data and script
 
-Python and GROMACS scripts are hosted in the DaRUS repository of the university of Stuttgart: see here for [bulk systems](https://doi.org/10.18419/darus-3179), and here for [slit pores](https://doi.org/10.18419/darus-3180).
+Python and GROMACS scripts are hosted in the DaRUS repository of the university of Stuttgart: see here for
+[bulk systems](https://doi.org/10.18419/darus-3179), and here for [slit pores](https://doi.org/10.18419/darus-3180).
 
 ## Vulgarisation
 
