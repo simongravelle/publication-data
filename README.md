@@ -61,6 +61,13 @@ In order to create salt crusts, wicking experiments were conducted. A solution o
 
 NMR experiments performed on the salt crusts revealed a lower value of *T<sub>1</sub>* in the case of Na<sub>2</sub>SO<sub>4</sub>, as compared to NaCl. This difference could be due to difference in pore size distribution, as smaller pores would have stronger impact on *T<sub>1</sub>* than larger pores. But it could also be due to difference in the interaction between the water and salt crust, which is why we combined these experiments with molecular dynamics simulations.
 
+### MD simulations: pure water in slit pore
+
+MD simulations of pure water in a slit pore were first performed. The solid walls were made either of NaCl or Na<sub>2</sub>SO<sub>4</sub> to match with the experiment, see the image bellow.
+
+![alt text](figures/MDSimulations1.png)
+
+
 
 
 
