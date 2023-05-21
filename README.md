@@ -72,5 +72,14 @@ MD simulations of pure water in a slit pore were first performed using GROMACS, 
 
 If one splits the graph with respect to the frequency, one can identify 3 different areas. In Area I (see the previous figure), corresponding to low frequency, both spectrum are flat suggesting that there is no long (>100 ns) event that influence the spectrum, which is expected for confined systems. For such confined systems, the maximum times are typically governed by diffusion over the pore size, see [this article](https://pubs.acs.org/doi/10.1021/acs.nanolett.9b02858?ref=PDF). In Area III, at high frequency, the spectrum are governed by molecular motions (rotation and translation of the molecules), which typically occur over duration of 10-100 ps. The high frequency part of the spectrum is similar to what is observed for bulk systems. In Area 2, corresponding to intermediate regime, a variation of the spectrum is observed in the case of Na<sub>2</sub>SO<sub>4</sub>. This suggest that some additional mechanisms contribute to the relaxation. Here, those mechanism are clearly connected to what is occurring at the surface of pore, where the water molecules undergoes adsorption and desorption events over durations that are typically the nanosecond. These adsorption-desorption events obviously occur as well in the case of NaCl slit pores, but for some reason it does not appear in the spectra (the NaCl spectra is quasi-flat in Area II). Our hypothesis is that NaCl surfaces don't impact the water molecules enough, so there is no strong signature of the adsorption of the molecules at the surface, which will be confirmed below.
 
+The effect of the solid surfaces on the fluid can be seen by looking at the density profile normal to the solid surface, where the solid surface is located in *z* = 0.
+For both solid surface, a structuring of the liquid is visible over several water layer, with some strong oscillation in the density.
+
+![alt text](figures/MDSimulations2.png)
+
+What is interesting is to have a look at the typical orientation of the water molecules next to the interface, which we do by introducing the parameter *S*, that is equal to 1 if the molecules are aligned with *z*, -0.5 if they are normal to *z*, and 0 if they are randomly oriented. The orientation profiles clearly show that water molecules are strongly polarized next to the solid surface of Na<sub>2</sub>SO<sub>4</sub>, and not so much in the case of NaCl, which could justify why the adsorption-desorption events of molecules entering and leaving the interface are visible only in the Na<sub>2</sub>SO<sub>4</sub> spectra, not in the NaCl spectra.
+
+
+
 
 ![alt text](figures/Credit.png)
