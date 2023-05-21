@@ -17,7 +17,7 @@ investigate the properties of water confined withing salt crust using both NMR e
 Python and GROMACS scripts are hosted in the DaRUS repository of the university of Stuttgart: see here for
 [bulk systems](https://doi.org/10.18419/darus-3179), and here for [slit pores](https://doi.org/10.18419/darus-3180).
 
-## Our article in simple words
+## In short
 
 ### Goals
 
@@ -51,10 +51,13 @@ For simple systems, like bulk solutions, comparison between experiments and simu
 
 ![alt text](figures/BulkComparisons.png)
 
-We also compared experiments with simulations in the case of bulk NaCl and Na2SO4 electrolyte (see the previous figure, middle and right panels). The agreement is not perfect, which could be due to the fact that force field for the salt were calibrated in order to reproduce thermodynamic properties of the salts, but *T<sub>1</sub>* also depends on dynamics properties like viscosity.   
+We also compared experiments with simulations in the case of bulk NaCl and Na2SO4 electrolyte (see the previous figure, middle and right panels). The agreement is not perfect, which could be due to the fact that force field for the salt were calibrated in order to reproduce some thermodynamic properties of the salts (solvation energy and ionic activity), but *T<sub>1</sub>* also depends on dynamics properties like viscosity.   
 
+### The experiment
 
+In order to create salt crusts, wicking experiments were conducted. A solution of either sodium chloride (NaCl) or sodium sulfate (Na<sub>2</sub>SO<sub>4</sub>) was wicking through sand that was connected to an atmosphere of controlled relative humidity and temperature on the top, allowing for the evaporation of the water, and eventually the formation of a salt crust. SEM analysis conducted by Jenna Poonoosamy allowed us to characterize the pore size distribution, 
 
+![alt text](figures/Experiments.png)
 
 
 
