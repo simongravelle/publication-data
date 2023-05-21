@@ -43,9 +43,13 @@ In the case of the experiments, we used macroscopic salt crusts, which are porou
 
 ![alt text](figures/MDvsExperiments.png)
 
-For the molecular dynamics simulations, however, *T<sub>1</sub>* canno't be measured the same way since atoms are modelled as a simple point with a partial charge, but no spin. So instead of measuring *T<sub>1</sub>* directly, the opposite route is followed: the molecular motion is probed, and *T<sub>1</sub>* is calculated. Technically, one has to measure the distance and orientation between all the hydrogen atoms over time, inject those quantities in a correlation function, and then calculate its spectrum using Fourier transform. The complete path and formula is described in the [article](https://doi.org/10.1021/acs.langmuir.3c00036), and the Python code we used for the calculation was made available on Github, see [NMRforMD](https://github.com/simongravelle/nmrformd).
+For the molecular dynamics (MD) simulations, however, *T<sub>1</sub>* canno't be measured the same way since atoms are modelled as a simple point with a partial charge, but no spin. So instead of measuring *T<sub>1</sub>* directly, the opposite route is followed: the molecular motion is probed, and *T<sub>1</sub>* is calculated. Technically, one has to measure the distance and orientation between all the hydrogen atoms over time, inject those quantities in a correlation function, and then calculate its spectrum using Fourier transform. The complete path and formula is described in the [article](https://doi.org/10.1021/acs.langmuir.3c00036), and the Python code we used for the calculation was made available on Github, see [NMRforMD](https://github.com/simongravelle/nmrformd).
 
+### Exact comparison of bulk systems
 
+For simple systems, like bulk solutions, comparison between experiments and simulations can be done exactly, ie *without* any adjustment parameters. For instance we did compare the value of *T<sub>1</sub>* for bulk water, and found a good agreement between our experiment, our MD simulations, and experiments from the literature (see figure below). Note however a slight difference between experimental and simulations, which could be due to the known discrepancy in viscosity between our water model (TIP4P/epsilon) and water.
+
+![alt text](figures/BulkComparisons.png)
 
 
 
