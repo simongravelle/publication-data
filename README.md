@@ -25,8 +25,8 @@ with the experimental group of Ilmenau in Germany. The goals of the investigatio
 
 ## The particularity of salt crusts
 
-<p float="left">
-  <a href=""><img src="figures/TOC.jpg" width="100%" /></a>
-</p>
+When a fluid is in contact with a solid surface, its properties near the solid surface are modified. In general, the fluid viscosity, density, or dielectric permeability are different within a few nanometer distance from the surface, due to the solid-liquid interactions.
 
-![alt text](figures/TOC.jpg)
+![alt text](figures/Context.png)
+
+In the case were the solid surface is made of salt, as is the case for porous salt crusts, it creates a systems that is really unique, because salt is present within both the fluid, in the form of dissolved ions, and also constitute the solid surface. In addition, the adsorption of ions at the solid surface creates rough and locally charged landscape which in turns strongly impact the properties of water. 
