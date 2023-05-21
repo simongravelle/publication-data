@@ -85,5 +85,17 @@ So far, simulations were done using pure water as the fluid, but in a real salt 
 
 ![alt text](figures/MDSimulations3.png)
 
+It seems that adding salt to solution strongly impact the *T<sub>1</sub>* spectrum, and this is not just because the viscosity of the solution increases when the salt is added, otherwise, the changes would be visible at high frequency (Area III). Instead, changes are occurring at intermediate and low frequency, which suggests that this is an interface effect. In other words, adding salts reenforce the interaction between water and the salt surfaces, leading to lower values of *T<sub>1</sub>*.
+
+The reason behind this effect can be understood by looking at the water-salt interface:
+
+![alt text](figures/MDSimulations4.png)
+
+Ions adsorb at the solid walls, thus making the surface effectively rough. Since ions are charged, water molecules strongly polarize next to the adsorbed ions, leading to amplified NMR signature of the adsorption of the water molecule. In addition, in the case of the NaCl surface, more sodium ions adsorbed in comparison to chloride ions, which create a charged surface, and thus a charged area next to the charge surface, which is also known to modify the properties of water more than a neutral wall.
+
+### What to remember for this study
+
+
+
 
 ![alt text](figures/Credit.png)
