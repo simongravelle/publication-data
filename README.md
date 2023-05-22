@@ -22,7 +22,7 @@ Python and GROMACS scripts are hosted in the DaRUS repository of the university 
 
 ### Goals
 
-This page describes the investigation we conducted as part of the SFB 1313, in collaboration 
+This page describes the investigation we conducted as part of the [SFB 1313](https://www.sfb1313.uni-stuttgart.de/), in collaboration 
 with the experimental group of Ilmenau (Germany). The goals of the investigation were to:
 
 - **better understand the properties of water confined within salt crusts**, which are disordered porous media made of salt,
@@ -30,7 +30,7 @@ with the experimental group of Ilmenau (Germany). The goals of the investigation
 
 ### Why studying salt crusts?
 
-Salt crusts can form at the surface of soil due to evaporation. In some arid regions, soil salinization is a real problem, and one needs better understanding of the formation of salt crust, as well as on the properties of water within the salt crusts, as it governs its evaporation.
+Salt crusts can form at the surface of soil due to evaporation. In some arid regions, soil salinization is a real problem, and one needs better understanding of the formation of salt crusts, and better prediction of the evaporation properties of water through the salt crusts.
 
 ### The particularity of solid salt surfaces
 
@@ -38,37 +38,37 @@ When a fluid is in contact with a solid surface, its properties near the solid s
 
 ![alt text](figures/Context.png)
 
-In the case were the solid surface is made of salt, as is the case for porous salt crusts, it creates a systems that is really unique, because salt is present within both the fluid, in the form of dissolved ions, and also constitute the solid surface. In addition, the adsorption of ions at the solid surface creates rough and locally charged landscape which in turn impacts the properties of water within the interface layer, as we will see below.
+In the case were the solid surface is made of salt, as is the case for porous salt crusts, it creates a systems that is really unique, because salt is present within the fluid, in the form of dissolved ions, and salt also constitutes the solid surface. In addition, the adsorption of ions at the solid surface creates rough and locally charged landscapes which in turn impact the properties of water within the interface layer, as we will see below.
 
 ### NMR experiments versus molecular dynamics simulations
 
-Here, both NMR experiments and molecular dynamics simulations were conducted. And although both methods can be used to compare the same quantities, the so-called NMR relaxation time, or *T<sub>1</sub>*.
+Here, both NMR experiments and molecular dynamics (MD) simulations were conducted. Both methods can be used to measure the same quantities, the so-called NMR relaxation time, or *T<sub>1</sub>*, allowing in principle for direct comparison between the two methods. Here, however, the two systems of interest are of widely different scales (see Figure below), so direct comparisons are difficult. Instead, MD was used to model a small (single pore) portion of the crust, and to better understand the local interactions between the water and the salt.
 
-In the case of the experiments, we used macroscopic salt crusts, which are porous medium made of salt and containing water. The system is exposed to a large magnetic field, and the typical time the spins of the atoms, here the hydrogen atoms of the water molecules, need to align with the imposed magnetic field is measured. This characteristic time is called *T<sub>1</sub>*, and is typically of the order of a few seconds for liquid water at ambient temperature. The reason why *T<sub>1</sub>* is of interest here, is that it depends on the molecular motions of the water molecules within the salt crust, so measuring *T<sub>1</sub>* is a direct way of probing the rotational and translation motion of the molecules inside the pores. 
+In the case of the experiments, we used macroscopic salt crusts, which are porous medium made of salt and containing water. For the measurement of *T<sub>1</sub>*, the system is exposed to a large magnetic field, and the typical time the spins of the atoms, here the hydrogen atoms of the water molecules, need to align with the imposed magnetic field is measured. This characteristic time is called *T<sub>1</sub>*, and is typically of the order of a few seconds for liquid water at ambient temperature. The reason why *T<sub>1</sub>* is of interest here, is that it depends on the molecular motions of the water molecules within the salt crust, so measuring *T<sub>1</sub>* is a direct way of probing the rotational and translation motion of the molecules inside the pores. 
 
 ![alt text](figures/MDvsExperiments.png)
 
-For the molecular dynamics (MD) simulations, however, *T<sub>1</sub>* canno't be measured the same way since atoms are modelled as a simple point with a partial charge, but no spin. So instead of measuring *T<sub>1</sub>* directly, the opposite route is followed: the molecular motion is probed, and *T<sub>1</sub>* is calculated. Technically, one has to measure the distance and orientation between all the hydrogen atoms over time, inject those quantities in a correlation function, and then calculate its spectrum using Fourier transform. The complete path and formula is described in the [article](https://doi.org/10.1021/acs.langmuir.3c00036), and the Python code we used for the calculation was made available on Github, see [NMRforMD](https://github.com/simongravelle/nmrformd).
+For the MD simulations, however, *T<sub>1</sub>* canno't be measured the same way (In MD, atoms are modelled as a simple point with a partial charge, but no spin). So instead of measuring *T<sub>1</sub>* directly, the opposite route is followed: the molecular motion is probed, and *T<sub>1</sub>* is calculated from it. Technically, one has to measure the distance and orientation between all the hydrogen atoms over time, inject those quantities in a correlation function, and then calculate its spectrum using Fourier transform. The equations are given in the [article](https://doi.org/10.1021/acs.langmuir.3c00036) and in the linked references, and the Python code we used for the calculation is available on Github, see [NMRforMD](https://github.com/simongravelle/nmrformd).
 
 ### Exact comparison in the case of bulk systems
 
-For simple systems, like bulk solutions, comparison between experiments and simulations can be done exactly, ie *without* any adjustment parameters. For instance we did compare the value of *T<sub>1</sub>* for bulk water, and found a good agreement between our experiment, our MD simulations, and experiments from the literature (see figure below, left panel). Note however a slight difference between experimental and simulations, which could be due to the known discrepancy in viscosity between our water model (TIP4P/epsilon) and water.
+For simple systems, like bulk solutions, comparison between experiments and simulations can be done directly *without* any adjustment parameters. For instance we did compare the value of *T<sub>1</sub>* for bulk water, and found a good agreement between our experiment, our MD simulations, and experiments from the literature (see figure below, left panel). Note however a slight difference between experimental and simulations, which could be due to the known discrepancy in viscosity between our water model (TIP4P/epsilon) and water.
 
 ![alt text](figures/BulkComparisons.png)
 
-We also compared experiments with simulations in the case of bulk NaCl and Na2SO4 electrolyte (see the previous figure, middle and right panels). The agreement is not perfect, which could be due to the fact that force field for the salt were calibrated in order to reproduce some thermodynamic properties of the salts (solvation energy and ionic activity), but *T<sub>1</sub>* also depends on dynamics properties like viscosity.   
+We also compared experiments with simulations in the case of bulk NaCl and Na2SO4 electrolyte (see the previous figure, middle and right panels). The agreement is not perfect, which could be due to the fact that the force fields for the salt were calibrated in order to reproduce some thermodynamic properties of the salts (solvation energy and ionic activity), but *T<sub>1</sub>* also depends on dynamics properties like viscosity.   
 
 ### The experiment
 
-In order to create salt crusts, wicking experiments were conducted. A solution of either sodium chloride (NaCl) or sodium sulfate (Na<sub>2</sub>SO<sub>4</sub>) was wicking through sand that was connected to an atmosphere of controlled relative humidity and temperature on the top, allowing for the evaporation of the water, and eventually the formation of a salt crust. SEM analysis conducted by Jenna Poonoosamy allowed us to characterize the pore size distribution, see the image bellow.
+In order to create salt crusts, wicking experiments were conducted. A solution of either sodium chloride (NaCl) or sodium sulfate (Na<sub>2</sub>SO<sub>4</sub>) was wicking through sand that was connected to an atmosphere of controlled relative humidity and temperature on the top, allowing for the evaporation of the water. After a few days, a salt crust was formed. SEM analysis conducted by Jenna Poonoosamy [IEK-6 Forschungszentrum Jülich, Germany] allowed us to characterize the pore size distribution, see the image bellow.
 
 ![alt text](figures/Experiment.png)
 
-NMR experiments performed on the salt crusts revealed a lower value of *T<sub>1</sub>* in the case of Na<sub>2</sub>SO<sub>4</sub>, as compared to NaCl. This difference could be due to difference in pore size distribution, as smaller pores would have stronger impact on *T<sub>1</sub>* than larger pores. But it could also be due to difference in the interaction between the water and salt crust, which is why we combined these experiments with molecular dynamics simulations.
+NMR experiments performed on the salt crusts revealed a lower value of *T<sub>1</sub>* in the case of Na<sub>2</sub>SO<sub>4</sub>, as compared to NaCl. This difference could be due to difference in pore size distribution, as smaller pores would have stronger impact on *T<sub>1</sub>* than larger pores. But it could also be due to difference in the interaction between the water and salt crust, as Na<sub>2</sub>SO<sub>4</sub> and NaCl have different chemistry. This is why MD were performed.
 
 ### MD simulations: pure water in slit pore
 
-MD simulations of pure water in a slit pore were first performed using GROMACS, input scripts can be downloaded [here](https://doi.org/10.18419/darus-3180). The solid walls were made either of NaCl or Na<sub>2</sub>SO<sub>4</sub> to match with the experiment, see the image bellow.
+First, MD simulations of *pure water* in a slit pore were performed using GROMACS, input scripts can be downloaded [here](https://doi.org/10.18419/darus-3180). The solid walls were made either of NaCl or Na<sub>2</sub>SO<sub>4</sub> to match with the experiment, see the image bellow.
 
 ![alt text](figures/MDSimulations1.png)
 
