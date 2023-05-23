@@ -1,4 +1,4 @@
-# Data from the Gravelle group
+# Data from recent publications
 
 If you use the data in these files, please cite the relevant paper.
 
