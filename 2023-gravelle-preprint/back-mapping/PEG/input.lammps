@@ -1,0 +1,27 @@
+
+units real
+atom_style full
+bond_style harmonic
+angle_style charmm
+dihedral_style charmm
+pair_style lj/cut 0
+special_bonds lj 0.0 0.0 0.5
+
+read_data PEG.data
+include PARM.lammps
+
+include group.lammps
+ 
+set type * charge 0
+
+dump mydmp all atom 2 dump.lammpstrj
+
+thermo 1
+minimize 1.0e-6 1.0e-8 100 1000
+
+velocity all create 1 15152
+fix mynve all nve
+fix myber all temp/berendsen 1 1 1
+
+write_data PEG.data
+

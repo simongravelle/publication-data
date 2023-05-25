@@ -1,0 +1,288 @@
+LAMMPS (23 Jun 2022)
+
+units real
+atom_style full
+bond_style harmonic
+angle_style charmm
+dihedral_style charmm
+pair_style lj/cut 0
+special_bonds lj 0.0 0.0 0.5
+
+read_data PEG.data
+Reading data file ...
+  orthogonal box = (-15 -15 -15) to (15 15 15)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  31 atoms
+  reading velocities ...
+  31 velocities
+  scanning bonds ...
+  4 = max bonds/atom
+  scanning angles ...
+  6 = max angles/atom
+  scanning dihedrals ...
+  6 = max dihedrals/atom
+  reading bonds ...
+  30 bonds
+  reading angles ...
+  53 angles
+  reading dihedrals ...
+  34 dihedrals
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0.5     
+  special bond factors coul:  0        0        0       
+     4 = max # of 1-2 neighbors
+     6 = max # of 1-3 neighbors
+    12 = max # of 1-4 neighbors
+    14 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+  read_data CPU = 0.003 seconds
+include PARM.lammps
+# Mass
+
+mass 		1 15.9994 # H2O O
+mass 		2 1.008 # H2O H
+mass 		3 12.011 # CC32A
+mass 		4 15.9994 # OC30A
+mass 		5 1.008 # HCA2
+mass 		6 15.9994 # OC311
+mass 		7 1.008 # HCP1
+
+# Pair Coeff
+
+pair_coeff 	1 1 0.0 0.0 # 0.185199 3.1589
+pair_coeff 	2 2 0.0 0.0
+pair_coeff 	3 3 0.0 0.0 # 0.056 3.58141
+pair_coeff 	4 4 0.0 0.0 # 0.100 2.93997
+pair_coeff 	5 5 0.0 0.0 # 0.035 2.38761
+pair_coeff 	6 6 0.0 0.0 # 0.192 3.14487
+pair_coeff 	7 7 0.0 0.0 # 0.046 0.40001
+
+# Bond coeff
+
+bond_coeff 	1 0 0.9572
+bond_coeff 	2 222.35 1.5300
+bond_coeff 	3 308.79 1.1111
+bond_coeff 	4 359.76 1.1415
+bond_coeff 	5 427.715 1.1420
+bond_coeff 	6 544.635 0.9600
+
+# Angle coeff
+
+angle_coeff 	1 0 104.52 0 0
+angle_coeff	2 50.0000 109.0000 0.0000 0.0000
+angle_coeff	3 26.5000 110.1000 22.5300 2.179
+angle_coeff	4 45.0000 111.5000 0.0000 0.0000
+angle_coeff	5 13.0258 109.4000 0.0000 0.0000
+angle_coeff	6 35.5000 109.0000 5.4000 1.802
+angle_coeff	7 55.0000 108.8900 0.0000 0.0000
+angle_coeff	8 75.7000 110.1000 0.0000 0.0000
+angle_coeff	9 95.0000 109.7000 0.0000 0.0000
+
+# Dihedral coeff
+# weighting factor put to 0, possibly wrong
+
+dihedral_coeff	1 0.57 1 0 0
+dihedral_coeff	2 0.29 2 0 0
+dihedral_coeff	3 0.43 3 0 0
+dihedral_coeff	4 0.59 1 180 0
+dihedral_coeff	5 1.16 2 0 0
+dihedral_coeff	6 0.12 1 0 0
+dihedral_coeff	7 0.42 2 0 0
+dihedral_coeff	8 0.29 3 0 0
+dihedral_coeff	9 2.87 1 180 0
+dihedral_coeff	10 0.03 2 0 0
+dihedral_coeff	11 0.23 3 0 0
+dihedral_coeff	12 1.36 1 180 0
+dihedral_coeff	13 0.16 2 0 0
+dihedral_coeff	14 1.01 3 0 0
+
+
+include group.lammps
+group mon1 id 1 2 3 4 5
+5 atoms in group mon1
+group mon2 id 6 7 8 9 10 11 12
+7 atoms in group mon2
+group mon3 id 13 14 15 16 17 18 19
+7 atoms in group mon3
+group mon4 id 20 21 22 23 24 25 26
+7 atoms in group mon4
+group mon5 id 27 28 29 30 31
+5 atoms in group mon5
+
+set type * charge 0
+Setting atom values ...
+  31 settings made for charge
+
+dump mydmp all atom 2 dump.lammpstrj
+
+thermo 1
+minimize 1.0e-6 1.0e-8 100 1000
+WARNING: Using 'neigh_modify every 1 delay 0 check yes' setting during minimization (../min.cpp:187)
+Generated 21 of 21 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update every 1 steps, delay 0 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 0
+  ghost atom cutoff = 0
+  binsize = 30, bins = 1 1 1
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+WARNING: No pairwise cutoff or binsize set. Atom sorting therefore disabled. (../atom.cpp:2127)
+WARNING: Communication cutoff 0 is shorter than a bond length based estimate of 5.4425. This may lead to errors. (../comm.cpp:727)
+WARNING: Communication cutoff is 0.0. No ghost atoms will be generated. Atoms may get lost. (../comm_brick.cpp:210)
+Per MPI rank memory allocation (min/avg/max) = 12.69 | 12.69 | 12.69 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   2.6928356      0              877.64275      877.88355     -1139.0007    
+         1   2.6928356      0              774.04072      774.28153     -652.84492    
+         2   2.6928356      0              690.18586      690.42667     -372.94431    
+         3   2.6928356      0              608.15906      608.39986     -167.94893    
+         4   2.6928356      0              527.60892      527.84972     -30.023333    
+         5   2.6928356      0              449.8566       450.0974       45.392378    
+         6   2.6928356      0              379.14185      379.38265      79.187072    
+         7   2.6928356      0              318.07942      318.32023      95.081339    
+         8   2.6928356      0              268.53107      268.77188      120.03981    
+         9   2.6928356      0              225.05846      225.29927      126.46906    
+        10   2.6928356      0              192.987        193.22781      191.05776    
+        11   2.6928356      0              161.95032      162.19112      121.39432    
+        12   2.6928356      0              131.7952       132.03601      115.42071    
+        13   2.6928356      0              113.20098      113.44178      285.40164    
+        14   2.6928356      0              88.330596      88.571401      222.69457    
+        15   2.6928356      0              78.481017      78.721822      106.74512    
+        16   2.6928356      0              67.854382      68.095187     -58.132729    
+        17   2.6928356      0              61.820864      62.061669      22.80246     
+        18   2.6928356      0              58.855177      59.095982      216.38334    
+        19   2.6928356      0              53.889838      54.130643      344.69376    
+        20   2.6928356      0              45.041557      45.282362      234.56658    
+        21   2.6928356      0              41.352438      41.593243      137.03751    
+        22   2.6928356      0              39.360474      39.601279     -3.596596     
+        23   2.6928356      0              36.145856      36.386661     -34.196507    
+        24   2.6928356      0              31.426083      31.666888      83.257647    
+        25   2.6928356      0              28.675897      28.916702      128.12752    
+        26   2.6928356      0              27.137627      27.378432      97.480065    
+        27   2.6928356      0              25.179454      25.420259      16.854744    
+        28   2.6928356      0              23.710957      23.951762      29.005485    
+        29   2.6928356      0              22.093497      22.334302      96.364128    
+        30   2.6928356      0              21.109361      21.350166      92.310096    
+        31   2.6928356      0              20.313737      20.554542      57.865247    
+        32   2.6928356      0              19.545958      19.786763      17.629046    
+        33   2.6928356      0              18.997365      19.23817       3.4735189    
+        34   2.6928356      0              18.483112      18.723917      16.176501    
+        35   2.6928356      0              18.053245      18.29405       30.215261    
+        36   2.6928356      0              17.717356      17.958161      34.219282    
+        37   2.6928356      0              17.27816       17.518965      4.9788575    
+        38   2.6928356      0              17.063526      17.304331     -7.9357408    
+        39   2.6928356      0              16.862705      17.10351       4.7156073    
+        40   2.6928356      0              16.577236      16.818041      27.30972     
+        41   2.6928356      0              16.332639      16.573444      25.740728    
+        42   2.6928356      0              16.18229       16.423095      9.5012494    
+        43   2.6928356      0              15.998043      16.238848     -16.963224    
+        44   2.6928356      0              15.888741      16.129546     -15.381926    
+        45   2.6928356      0              15.747498      15.988303      0.66796783   
+        46   2.6928356      0              15.646028      15.886833     -1.8365608    
+        47   2.6928356      0              15.530123      15.770928     -13.24837     
+        48   2.6928356      0              15.421362      15.662167     -21.647411    
+        49   2.6928356      0              15.281085      15.52189      -26.065902    
+        50   2.6928356      0              15.152101      15.392906     -17.688821    
+        51   2.6928356      0              15.07577       15.316575     -12.200494    
+        52   2.6928356      0              15.000611      15.241416     -24.888007    
+        53   2.6928356      0              14.91457       15.155375     -35.687659    
+        54   2.6928356      0              14.849104      15.089909     -29.213505    
+        55   2.6928356      0              14.777519      15.018324     -23.832566    
+        56   2.6928356      0              14.736064      14.976869     -21.540445    
+        57   2.6928356      0              14.677346      14.918151     -23.372821    
+        58   2.6928356      0              14.616612      14.857417     -20.272604    
+        59   2.6928356      0              14.572228      14.813033     -19.06755     
+        60   2.6928356      0              14.52057       14.761375     -9.1029899    
+        61   2.6928356      0              14.462772      14.703577     -6.2774681    
+        62   2.6928356      0              14.400947      14.641752     -11.532503    
+        63   2.6928356      0              14.367189      14.607994     -9.0004138    
+        64   2.6928356      0              14.332449      14.573254     -10.994261    
+        65   2.6928356      0              14.292473      14.533278     -11.938272    
+        66   2.6928356      0              14.233503      14.474308     -11.21747     
+        67   2.6928356      0              14.174064      14.414869     -4.9612906    
+        68   2.6928356      0              14.126677      14.367482      0.016009603  
+        69   2.6928356      0              14.084051      14.324856     -3.144168     
+        70   2.6928356      0              14.019804      14.260609     -1.0046742    
+        71   2.6928356      0              13.978184      14.218989     -1.9696585    
+        72   2.6928356      0              13.930311      14.171116     -7.3232303    
+        73   2.6928356      0              13.899993      14.140798     -5.9649063    
+        74   2.6928356      0              13.862653      14.103458     -6.4514849    
+        75   2.6928356      0              13.821438      14.062243     -3.4332185    
+        76   2.6928356      0              13.758242      13.999047      2.3587455    
+        77   2.6928356      0              13.703736      13.944541      0.16579586   
+        78   2.6928356      0              13.633691      13.874496     -8.0130334    
+        79   2.6928356      0              13.57989       13.820695     -9.0076803    
+        80   2.6928356      0              13.5319        13.772705      0.022936362  
+        81   2.6928356      0              13.477465      13.71827       4.470505     
+        82   2.6928356      0              13.434582      13.675387      1.5771208    
+        83   2.6928356      0              13.373506      13.614311     -14.412547    
+        84   2.6928356      0              13.325436      13.566241     -20.819324    
+        85   2.6928356      0              13.282398      13.523203     -4.1911226    
+        86   2.6928356      0              13.243204      13.484009      9.2311371    
+        87   2.6928356      0              13.20224       13.443044      7.4425337    
+        88   2.6928356      0              13.160132      13.400937     -7.6728338    
+        89   2.6928356      0              13.11644       13.357245     -16.132667    
+        90   2.6928356      0              13.078134      13.318939     -9.7079783    
+        91   2.6928356      0              13.043821      13.284626     -1.9039713    
+        92   2.6928356      0              13.024362      13.265167     -1.6870065    
+        93   2.6928356      0              13.010318      13.251123     -6.9134304    
+        94   2.6928356      0              13.002341      13.243146     -10.203528    
+        95   2.6928356      0              12.995577      13.236382     -10.626022    
+        96   2.6928356      0              12.988208      13.229013     -4.3410782    
+        97   2.6928356      0              12.981736      13.22254      -0.90408325   
+        98   2.6928356      0              12.967682      13.208487     -1.6980216    
+        99   2.6928356      0              12.941735      13.18254      -9.8695149    
+       100   2.6928356      0              12.924565      13.16537      -14.205827    
+Loop time of 0.00409512 on 1 procs for 100 steps with 31 atoms
+
+100.0% CPU use with 1 MPI tasks x no OpenMP threads
+
+Minimization stats:
+  Stopping criterion = max iterations
+  Energy initial, next-to-last, final = 
+      877.642747360107    12.941735405102   12.9245650159771
+  Force two-norm initial, final = 537.20526 4.0707748
+  Force max component initial, final = 249.62123 1.3777942
+  Final line search alpha, max atom move = 0.019052648 0.026250629
+  Iterations, force evaluations = 100 183
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 5.8873e-05 | 5.8873e-05 | 5.8873e-05 |   0.0 |  1.44
+Bond    | 0.0014138  | 0.0014138  | 0.0014138  |   0.0 | 34.52
+Neigh   | 1.8057e-05 | 1.8057e-05 | 1.8057e-05 |   0.0 |  0.44
+Comm    | 2.316e-05  | 2.316e-05  | 2.316e-05  |   0.0 |  0.57
+Output  | 0.0024172  | 0.0024172  | 0.0024172  |   0.0 | 59.03
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 0.000164   |            |       |  4.00
+
+Nlocal:             31 ave          31 max          31 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 0
+Ave neighs/atom = 0
+Ave special neighs/atom = 9.2258065
+Neighbor list builds = 2
+Dangerous builds = 0
+
+velocity all create 1 15152
+fix mynve all nve
+fix myber all temp/berendsen 1 1 1
+
+write_data PEG.data
+System init for write_data ...
+Generated 21 of 21 mixed pair_coeff terms from geometric mixing rule
+WARNING: Communication cutoff 0 is shorter than a bond length based estimate of 5.4425. This may lead to errors. (../comm.cpp:727)
+WARNING: Communication cutoff is 0.0. No ghost atoms will be generated. Atoms may get lost. (../comm_brick.cpp:210)
+
+Total wall time: 0:00:00

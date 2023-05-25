@@ -1,0 +1,54 @@
+
+units real
+boundary s s s
+atom_style full
+bond_style harmonic
+angle_style charmm
+dihedral_style charmm
+pair_style lj/cut 1.8
+
+#atom_modify sort 100 1000
+
+read_data PEG.data
+include ../inputs/GROUP.lammps
+include ../PEG/PARM_WCA.lammps
+
+fix pull1 MON1 spring tether 10000 0 0 0 0
+fix pull2 MON2 spring tether 10000 0 0 0 0
+fix pull3 MON3 spring tether 10000 0 0 0 0
+fix pull4 MON4 spring tether 10000 0 0 0 0
+fix pull5 MON5 spring tether 10000 0 0 0 0
+
+fix_modify pull1 energy yes
+fix_modify pull2 energy yes
+fix_modify pull3 energy yes
+fix_modify pull4 energy yes
+fix_modify pull5 energy yes
+
+#variable ebond equal ebond
+#variable eangle equal eangle
+#variable edihed equal edihed
+#variable evdwl equal evdwl
+#fix myat all ave/time 1 5 5 v_ebond v_eangle v_edihed v_ebond v_evdwl file energy.dat
+#dump mydmp all atom 5 prepare.lammpstrj
+#thermo 1
+
+neighbor 5.0 nsq
+
+minimize 1.0e-6 1.0e-8 10 10
+
+minimize 1.0e-6 1.0e-8 10 10
+
+minimize 1.0e-6 1.0e-8 100 1000
+
+fix mynve all nve
+fix myber all temp/berendsen 100 10 1
+run 5000
+
+fix myber all temp/berendsen 10 0 1
+run 5000
+
+write_data PEG.data
+
+write_dump all atom configuration.lammpstrj
+write_dump all xyz configuration.xyz
