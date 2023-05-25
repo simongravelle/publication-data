@@ -1,5 +1,5 @@
-# Data from recent publications
+# Open-data and scripts from recent publications
 
-If you use the data in these files, please cite the relevant paper.
+If you use some of those data or script, please cite the relevant publication.
 
-When data was hosted on a different open-source data service, only a link is provided here.
+When the data is hosted on a different open-source data service, only a link is provided here.
