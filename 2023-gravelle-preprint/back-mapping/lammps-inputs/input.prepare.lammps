@@ -10,8 +10,8 @@ pair_style lj/cut 1.8
 #atom_modify sort 100 1000
 
 read_data PEG.data
-include ../inputs/GROUP.lammps
-include ../PEG/PARM_WCA.lammps
+include ../lammps-inputs/GROUP.lammps
+include ../PEG-parameters/PARM_WCA.lammps
 
 fix pull1 MON1 spring tether 10000 0 0 0 0
 fix pull2 MON2 spring tether 10000 0 0 0 0
