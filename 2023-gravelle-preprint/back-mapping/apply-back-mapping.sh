@@ -113,7 +113,7 @@ do
 done < _PEG.list
 
 cd _lammps-dump
-  cp ../MergeUniverse.py/MergeUniverse.py .
+  cp ../python-scripts/MergeUniverse.py  .
   python3 MergeUniverse.py
   rm -f MergeUniverse.py
 cd ..
