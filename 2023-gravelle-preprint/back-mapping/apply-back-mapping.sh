@@ -108,7 +108,7 @@ do
     cd $DUMP_DIR
         cp ../../python-scripts/MergePEG.py .
         python3 MergePEG.py
-    cd ..
+    cd ../../
 
 done < _PEG.list
 
