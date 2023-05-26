@@ -112,24 +112,11 @@ do
 
 done < _PEG.list
 
-
-#bash RunLAMMPS.sh &
-
-# delete temp folder
-
-#while IFS="" read -r p || [ -n "$p" ]
-#do
-#  cpt_PEG=$((p + 1))
-#  DIR="tempPEG"$cpt_PEG
-#  if [ -d "$DIR" ]; then
-#    rm -rf "$DIR"
-#  fi
-#done < PEG.list
-
-#cd dump
-#  cp ../MergeUniverse.py .
-#  python3 MergeUniverse.py
-#cd ..
+cd _lammps-dump
+  cp ../MergeUniverse.py/MergeUniverse.py .
+  python3 MergeUniverse.py
+  rm -f MergeUniverse.py
+cd ..
 
 
 
