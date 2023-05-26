@@ -14,3 +14,7 @@ test the validity of NMR relaxation rates obtained from coarse-grained simulatio
 ### Data and script
 
 Python, GROMACS, and ESPResSo scripts are hosted in the [DaRUS repository of the university of Stuttgart](https://doi.org/10.18419/darus-3313).
+
+### Backmapping
+
+The [back-mapping/](back-mapping/) folder contains the script used to reconstruct the atomic details from a coarse-grained trajectory file.

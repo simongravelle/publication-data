@@ -8,20 +8,18 @@ lmp=/home/simon/Softwares/lammps-8Feb2023/src/lmp_serial
 # Extract the positions of the bead, and create list of positions
 # Those list will later be used in LAMMPS
 cp python-scripts/GenerateTether.py .
-#python3 GenerateTether.py
-rm GenerateTether.py
+python3 GenerateTether.py
+rm -f GenerateTether.py
 
 while IFS="" read -r p || [ -n "$p" ]
 do
 
     cpt_PEG=$((p + 1))
 
+    # create the trajectory frame by frame
     WORKING_DIR="_PEG"$cpt_PEG
-
     mkdir -p ${WORKING_DIR}
-    #cp _PEG.list ${WORKING_DIR}
     cd ${WORKING_DIR}
-
         printf 'Dealing with PEG%s\n' "$cpt_PEG"
 
         # copy data file, and replace the lines
@@ -102,13 +100,16 @@ do
             } &> /dev/null
 
         done
-
     cd ..
-    
+    rm -rf ${WORKING_DIR}
 
-    #cp 'data/PEG.'$cpt_PEG'.data'  'data/PEG.'$cpt_PEG'_init.data'
+    # merge the trajectory into a single xtc file
+    DUMP_DIR="_lammps-dump/PEG"$cpt_PEG
+    cd $DUMP_DIR
+        cp ../../python-scripts/MergePEG.py .
+        python3 MergePEG.py
+    cd ..
 
-    # rm -r "tempPEG"$cpt_PEG
 done < _PEG.list
 
 
