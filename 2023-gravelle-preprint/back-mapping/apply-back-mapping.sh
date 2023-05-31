@@ -6,7 +6,7 @@ set -e
 lmp=/home/simon/Softwares/lammps-8Feb2023/src/lmp_serial 
 
 # Extract the positions of the bead, and create list of positions
-# Those list will later be used in LAMMPS
+# Those lists will later be used in LAMMPS
 cp python-scripts/GenerateTether.py .
 python3 GenerateTether.py
 rm -f GenerateTether.py
