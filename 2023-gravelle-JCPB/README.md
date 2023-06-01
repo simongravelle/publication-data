@@ -18,3 +18,9 @@ Python, GROMACS, and ESPResSo scripts are hosted in the [DaRUS repository of the
 ### Backmapping
 
 The [back-mapping/](back-mapping/) folder contains the script used to reconstruct the atomic details from a coarse-grained trajectory file.
+
+### Animation
+
+An [animation/](animation/) of a PEG molecule inspired by [hothello](https://matsci.org/t/open-review/47852) post on the LAMMPS forum. 
+
+![](animation/CG-AA-dark.webp)
