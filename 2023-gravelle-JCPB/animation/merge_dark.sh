@@ -19,12 +19,12 @@ do
     convert $file -resize $format ${file:0:24}.png; # -transparent black
 done
 
-for i in {0..199}; 
+for i in {0..100}; 
 do
     # x1 = start of the gradient
-    x1=$(printf "%.0f" $(bc -l<<<\($i+1\)*3))
+    x1=$(printf "%.0f" $(bc -l<<<\($i+1\)*4))
     # x2 = end of the gradient
-    x2=$(printf "%.0f" $(bc -l<<<\($i+1\)*4))
+    x2=$(printf "%.0f" $(bc -l<<<\($i+1\)*6))
     j=$(printf "%05i" $(bc -l<<<$i))
     # create a linear gradient file
     convert -size $format -define gradient:vector=$x1,500,$x2,500,angle=90 gradient:white-black _linear_gradient.png
