@@ -5,9 +5,9 @@ export LC_NUMERIC="en_US.UTF-8"
 
 set -e
 
-#format=480x284
+format=480x284
 #format=960x568
-format=1920x1136
+#format=1920x1136
 
 # resize and add transparent backgroung
 # AA
@@ -24,9 +24,11 @@ done
 for i in {0..99}; 
 do
     # x1 = start of the gradient
-    x1=$(printf "%.0f" $(bc -l<<<\($i+1\)*4))
+    x1=$(printf "%.0f" $(bc -l<<<\($i+1\)*4)) # for format=480x284
+    #x1=$(printf "%.0f" $(bc -l<<<\($i+1\)*20)) # for format=1920x1136
     # x2 = end of the gradient
-    x2=$(printf "%.0f" $(bc -l<<<\($i+1\)*6))
+    x2=$(printf "%.0f" $(bc -l<<<\($i+1\)*6)) # for format=480x284
+    #x2=$(printf "%.0f" $(bc -l<<<\($i+1\)*22)) # for format=1920x1136
     j=$(printf "%05i" $(bc -l<<<$i))
     # create a linear gradient file
     convert -size $format -define gradient:vector=$x1,500,$x2,500,angle=90 gradient:white-black _linear_gradient.png
