@@ -20,8 +20,8 @@ include PARM.lammps
 molecule h2omol H2OTip4p.txt
 #create_atoms 0 random 700 456415 NULL mol h2omol 454756 overlap 2 maxtry 10
 
-dump mydmp all xtc 20 AA.xtc
-#dump mydmp2 all atom 20 AA.lammpstrj
+#dump mydmp all xtc 20 AA.xtc
+dump mydmp2 all custom 20 AA.lammpstrj xu yu zu
 thermo 10
 
 group H2O type 1 2

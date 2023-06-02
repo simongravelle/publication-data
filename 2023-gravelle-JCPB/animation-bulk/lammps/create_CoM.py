@@ -5,14 +5,14 @@ from MDAnalysis import transformations
 
 from utilities import extract_monomer_list
 
-u = mda.Universe("AA.data", "AA.xtc")
+u = mda.Universe("AA.data", "AA.trr")
 u.transfer_to_memory()
 monomer_list = extract_monomer_list(u)
 
 # unwrap the AA universe
 ag = u.atoms
-transform = mda.transformations.unwrap(ag)
-u.trajectory.add_transformations(transform)
+#transform = mda.transformations.unwrap(ag)
+#u.trajectory.add_transformations(transform)
 oxygens = u.select_atoms("type 4 6")
 with mda.Writer("_oxygens.xtc", oxygens.n_atoms) as W:
     for ts in u.trajectory:
@@ -42,8 +42,8 @@ v.atoms.write("_temp.gro")
 # wrap universe (optional here)
 w = mda.Universe("_temp.gro", "_temp.xtc")
 ag = w.atoms
-transform = mda.transformations.wrap(ag)
-w.trajectory.add_transformations(transform)
+#transform = mda.transformations.wrap(ag)
+#w.trajectory.add_transformations(transform)
 
 # write CoM trajectory
 with mda.Writer("CG.xtc", len(monomer_list)) as W:
