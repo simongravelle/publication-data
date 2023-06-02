@@ -1,0 +1,11 @@
+#include "ff/forcefield.itp"
+#include "ff/peg.itp"
+#include "ff/tip4peps.itp"
+
+[ System ]
+PEG in water
+
+[ Molecules ]
+
+PEG 100
+SOL 500
