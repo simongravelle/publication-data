@@ -5,7 +5,7 @@ from MDAnalysis import transformations
 
 from utilities import extract_monomer_list
 
-u = mda.Universe("AA.data", "AA.trr")
+u = mda.Universe("AA.data", "AA.lammpstrj", topology_format="data", format="lammpsdump")
 u.transfer_to_memory()
 monomer_list = extract_monomer_list(u)
 
