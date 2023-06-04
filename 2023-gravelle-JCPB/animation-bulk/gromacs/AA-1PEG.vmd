@@ -345,7 +345,7 @@ mol addfile AA.xtc type xtc first 0 last -1 step 1 filebonds 1 autobonds 1 waitf
 mol delrep 0 top
 mol representation VDW 0.800000 42.000000
 mol color Name
-mol selection {type C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11 C12}
+mol selection {resid 15 and type C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11 C12}
 mol material Opaque
 mol addrep top
 mol selupdate 0 top 0
@@ -379,7 +379,7 @@ mol clipplane normal 5 0 top {0.0 0.0 1.0}
 mol clipplane status 5 0 top {0}
 mol representation VDW 0.700000 42.000000
 mol color Name
-mol selection {type O1 O2 O3 O4 O5 O6 O7 O8 O9 O10 O11}
+mol selection {type O1 O2 O3 O4 O5 O6 O7 O8 O9 O10 O11 and resid 15}
 mol material Opaque
 mol addrep top
 mol selupdate 1 top 0
@@ -413,7 +413,7 @@ mol clipplane normal 5 1 top {0.0 0.0 1.0}
 mol clipplane status 5 1 top {0}
 mol representation VDW 0.500000 42.000000
 mol color Name
-mol selection {type H1 H2 H3 H4 H5 H6 H7 H8 H9 H10 H11 H12 H13 H14 H15 H16 H17 H18 H19 H20 H21 H23 H24 H22}
+mol selection {type H1 H2 H3 H4 H5 H6 H7 H8 H9 H10 H11 H12 H13 H14 H15 H16 H17 H18 H19 H20 H21 H23 H24 H22 and resid 15}
 mol material Opaque
 mol addrep top
 mol selupdate 2 top 0
@@ -479,6 +479,7 @@ mol clipplane center 5 3 top {0.0 0.0 0.0}
 mol clipplane color  5 3 top {0.5 0.5 0.5 }
 mol clipplane normal 5 3 top {0.0 0.0 1.0}
 mol clipplane status 5 3 top {0}
+mol showrep top 3 0
 mol representation VDW 0.500000 42.000000
 mol color Name
 mol selection {type HW1 HW2}
@@ -513,8 +514,44 @@ mol clipplane center 5 4 top {0.0 0.0 0.0}
 mol clipplane color  5 4 top {0.5 0.5 0.5 }
 mol clipplane normal 5 4 top {0.0 0.0 1.0}
 mol clipplane status 5 4 top {0}
+mol showrep top 4 0
+mol representation VDW 0.800000 42.000000
+mol color Name
+mol selection { type C1 C2 C3 C4 C5 C6 C7 C8 C9 C10 C11 C12}
+mol material Opaque
+mol addrep top
+mol selupdate 5 top 0
+mol colupdate 5 top 0
+mol scaleminmax top 5 0.000000 0.000000
+mol smoothrep top 5 0
+mol drawframes top 5 {now}
+mol clipplane center 0 5 top {0.0 0.0 0.0}
+mol clipplane color  0 5 top {0.5 0.5 0.5 }
+mol clipplane normal 0 5 top {0.0 0.0 1.0}
+mol clipplane status 0 5 top {0}
+mol clipplane center 1 5 top {0.0 0.0 0.0}
+mol clipplane color  1 5 top {0.5 0.5 0.5 }
+mol clipplane normal 1 5 top {0.0 0.0 1.0}
+mol clipplane status 1 5 top {0}
+mol clipplane center 2 5 top {0.0 0.0 0.0}
+mol clipplane color  2 5 top {0.5 0.5 0.5 }
+mol clipplane normal 2 5 top {0.0 0.0 1.0}
+mol clipplane status 2 5 top {0}
+mol clipplane center 3 5 top {0.0 0.0 0.0}
+mol clipplane color  3 5 top {0.5 0.5 0.5 }
+mol clipplane normal 3 5 top {0.0 0.0 1.0}
+mol clipplane status 3 5 top {0}
+mol clipplane center 4 5 top {0.0 0.0 0.0}
+mol clipplane color  4 5 top {0.5 0.5 0.5 }
+mol clipplane normal 4 5 top {0.0 0.0 1.0}
+mol clipplane status 4 5 top {0}
+mol clipplane center 5 5 top {0.0 0.0 0.0}
+mol clipplane color  5 5 top {0.5 0.5 0.5 }
+mol clipplane normal 5 5 top {0.0 0.0 1.0}
+mol clipplane status 5 5 top {0}
+mol showrep top 5 0
 mol rename top AA.gro
-set viewpoints([molinfo top]) {{{1 0 0 -18.1159} {0 1 0 -17.6071} {0 0 1 -17.7357} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}} {{0.0501523 0 0 0} {0 0.0501523 0 0} {0 0 0.0501523 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+set viewpoints([molinfo top]) {{{1 0 0 -21.1406} {0 1 0 -29.7752} {0 0 1 -23.7174} {0 0 0 1}} {{0.491417 -0.846996 0.202748 0} {-0.643009 -0.50986 -0.571469 0} {0.587406 0.15046 -0.795182 0} {0 0 0 1}} {{0.169945 0 0 0} {0 0.169945 0 0} {0 0 0.169945 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 set topmol [molinfo top]
 # done with molecule 1

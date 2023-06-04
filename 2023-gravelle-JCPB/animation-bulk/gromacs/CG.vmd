@@ -411,7 +411,7 @@ color scale colors WBlk {1.0 1.0 1.0} {0.5 0.5 0.5} {0.0 0.0 0.0}
     {color Display {BackgroundTop} black}
     {color Display {BackgroundBot} blue2}
     {color Display {FPS} white}
-    {color Name {O} cyan}
+    {color Name {O} white}
     {color Name {LPA} green}
     {color Name {LPB} green}
     {color Type {LP} green}
