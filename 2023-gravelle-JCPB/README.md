@@ -1,10 +1,12 @@
 # Assessing the Validity of NMR Relaxation Rates Obtained from Coarse-Grained Simulations of PEG–Water Mixtures
 
-Authors: Simon Gravelle, David Beyer, Mariano Brito, Alexander Schlaich, and Christian Holm
-
 Publication Date: June 16, 2023
 
-This folder is associated with [our 2023 publication]([https://doi.org/10.26434/chemrxiv-2022-f90tv-v3](https://doi.org/10.1021/acs.jpcb.3c01646)), in which we
+Authors: Simon Gravelle, David Beyer, Mariano Brito, Alexander Schlaich, and Christian Holm
+
+Phys. Chem. B 2023, XXXX, XXX, XXX-XXX
+
+This folder is associated with [our 2023 publication](https://doi.org/10.1021/acs.jpcb.3c01646), in which we
 test the validity of NMR relaxation rates obtained from coarse-grained simulations using a model PEG-H2O system.
 
 ![](figures/TOC.jpg)
