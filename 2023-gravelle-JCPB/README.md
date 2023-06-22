@@ -1,7 +1,5 @@
 # Assessing the Validity of NMR Relaxation Rates Obtained from Coarse-Grained Simulations of PEG–Water Mixtures
 
-Preprint 2023
-
 Authors: Simon Gravelle, David Beyer, Mariano Brito, Alexander Schlaich, and Christian Holm
 
 Publication Date: June 16, 2023
