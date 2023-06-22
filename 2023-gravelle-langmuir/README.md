@@ -3,7 +3,7 @@
 
 ![](figures/Credit.png)
 
-Langmuir 2023, XXXX, XXX, XXX-XXX
+Langmuir 2023, 39, 22, 7548–7556
 
 Authors: Simon Gravelle, Sabina Haber-Pohlmeier, Carlos Mattea, Siegfried Stapf, Christian Holm, and Alexander Schlaich
 
