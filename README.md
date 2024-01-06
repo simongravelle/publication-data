@@ -6,8 +6,8 @@ When the data is hosted on a different open-source data service, a link is provi
 
 ### Acknowledgments ###
 
-<img src="docs/source/_static/logo/msca.png" width="10%" align="right"/></a>
-
-Some project here has received funding from the European Union's Horizon 2020 research and innovation programme
+Some projects have received funding from the European
+Union's Horizon 2020 research and innovation programme
 under the Marie Skłodowska-Curie grant agreement No 101065060.
 
+![MSCA image](https://raw.githubusercontent.com/simongravelle/nmrformd/main/docs/source/figures/logo/msca.png)
