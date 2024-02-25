@@ -4,7 +4,7 @@ Publication Date: June 14, 2023
 
 Authors: Ángel Díaz Carral, Xiang Xu, Simon Gravelle, Azade Yazdan Yar, Siegfried Schmauder, Maria Fyta
 
-Materials Chemistry and Physics 2023, XXXX, XXX, XXX-XXX
+Materials Chemistry and Physics, 306, 128053, 2023
 
 This folder is associated with [our 2023 publication](https://doi.org/10.1016/j.matchemphys.2023.128053), in which we apply active learning to provide an insight to additional new stable copper alloy.
 
