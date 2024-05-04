@@ -1,0 +1,36 @@
+# LAMMPS parameter file
+
+# Masses 
+mass 1 12.011 # Graphene
+mass 2 1.008 # Graphene
+mass 3 16 # oxygen TIP4P/2005
+mass 4 1.008 # hydrogen TIP4P/2005
+mass 5 55.845 # FeO
+mass 6 15.999 # FeO
+
+#Pair Coeffs 
+pair_coeff 1 1 0.07 3.55 # Graphene
+pair_coeff 2 2 0.03 2.42 # Graphene
+pair_coeff 3 3 0.1852 3.1589 # oxygen TIP4P/2005
+pair_coeff 4 4 0.0 0.0 # hydrogen TIP4P/2005
+pair_coeff 5 5 0.0000090298 4.9059 # FeO
+pair_coeff 6 6 0.1554 3.166 # FeO
+
+#Bond Coeffs
+bond_coeff 1 469.0 1.4 # Graphene
+bond_coeff 2 367.0 1.08 # Graphene
+bond_coeff 3 0.0 0.9572 # TIP4P/2005
+
+# Angle Coeffs
+angle_coeff 1 35.0 120.0 # Graphene
+angle_coeff 2 63.0 120.0 # Graphene
+angle_coeff 3 0.0 104.52 # TIP4P/2005
+
+# Dihedral Coeffs 
+dihedral_coeff 1 0.0 7.25 0.0 0.0 # Graphene
+dihedral_coeff 2 0.0 7.25 0.0 0.0 # Graphene
+dihedral_coeff 3 0.0 7.25 0.0 0.0 # Graphene
+
+# Improper Coeffs 
+improper_coeff 1 5.0 180.0 # Graphene
+improper_coeff 2 5.0 180.0 # Graphene

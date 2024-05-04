@@ -1,0 +1,138 @@
+# LAMMPS input file
+
+processors * 1 *
+
+variable P equal 1.0 
+variable convert equal 0.00014383640018 
+variable gamma equal 10e9/1e15 
+variable T equal 300.0
+
+boundary p p p
+units real
+atom_style full
+bond_style harmonic
+angle_style harmonic
+dihedral_style opls
+improper_style harmonic
+
+pair_style lj/cut/tip4p/long 3 4 3 3 0.1546 12.0
+kspace_style pppm/tip4p 1.0e-4
+
+pair_modify shift yes mix arithmetic
+special_bonds lj 0.0 0.0 0.5 coul 0.0 0.0 1.0 angle yes dihedral yes
+
+read_data ./data.equilibrium
+include ./PARM.lammps
+
+region top block INF INF INF INF 0 INF 
+region bot block INF INF INF INF INF 0 
+
+# Define groups
+group gra type 1 2
+group wat type 3 4
+group wll type 5 6
+group top region top 
+group bot region bot 
+group UpperSurface intersect top wll 
+group LowerSurface intersect bot wll 
+variable ThickL equal bound(LowerSurface,zmax)-bound(LowerSurface,zmin) 
+variable ThickU equal bound(UpperSurface,zmax)-bound(UpperSurface,zmin) 
+variable posL equal xcm(LowerSurface,z) 
+variable posU equal xcm(UpperSurface,z) 
+region top2 block INF INF INF INF ${posU} INF 
+region bot2 block INF INF INF INF INF ${posL} 
+group ControlU region top2 
+group ControlL region bot2 
+variable NLC equal count(ControlL) 
+variable NUC equal count(ControlU) 
+variable Surface equal lx*ly 
+variable FzL equal ${P}*${Surface}*${convert}/${NLC} 
+variable FzU equal -${P}*${Surface}*${convert}/${NUC}
+#region myblock block INF INF INF INF -30 30 side out
+#group wattherm dynamic wat region myblock every 100
+variable us0 equal bound(UpperSurface,zmax)
+variable usi equal ${us0}-0.5
+region rigtop block INF INF INF INF ${usi} ${us0}
+group rigtop region rigtop
+variable ls0 equal bound(LowerSurface,zmin)
+variable lsi equal ${ls0}+0.5
+region rigbot block INF INF INF INF ${ls0} ${lsi}
+group rigbot region rigbot
+
+# Calculate forces to apply on piston
+variable intto equal v_posU-${ThickU}/2 
+variable intbo equal v_posL+${ThickL}/2 
+variable pU equal ${gamma}*(v_intto-v_intbo)/2 
+variable mU equal -${gamma}*(v_intto-v_intbo)/2 
+
+fix ad1 ControlU addforce 0 0 v_FzU 
+fix ad2 ControlL addforce 0 0 v_FzL 
+
+fix mynve all nve
+dump mydmp1 all atom 50000 dump.lammpstrj
+dump mydmp2 gra atom 1000 dump.gra.lammpstrj
+
+fix myshk wat shake 1.0e-4 200 0 b 3 a 3
+
+# Deal with water temperature
+compute Twatxyz wat temp
+compute Twaty wat temp/partial 0 1 0
+compute Twatz wat temp/partial 0 0 1
+compute Twatyz wat temp/partial 0 1 1
+fix at1 all ave/time 10 10 100 c_Twatyz c_Twaty c_Twatz c_Twatxyz file tempwater.dat
+fix myber3 wat temp/berendsen ${T} ${T} 100 
+fix_modify myber3 temp Twatyz
+
+# Deal with the lower wall temperature
+compute TlowWxyz LowerSurface temp
+compute TlowWy LowerSurface temp/partial 0 1 0
+compute TlowWz LowerSurface temp/partial 0 0 1
+compute TlowWyz LowerSurface temp/partial 0 1 1
+fix at2 all ave/time 10 10 100 c_TlowWyz c_TlowWy c_TlowWz c_TlowWxyz file templowWall.dat
+fix myber1 LowerSurface temp/berendsen ${T} ${T} 100 
+fix_modify myber1 temp TlowWyz
+
+# Deal with the higher wall temperature
+compute ThighWxyz UpperSurface temp
+compute ThighWy UpperSurface temp/partial 0 1 0
+compute ThighWz UpperSurface temp/partial 0 0 1
+compute ThighWyz UpperSurface temp/partial 0 1 1
+fix at3 all ave/time 10 10 100 c_ThighWyz c_ThighWy c_ThighWz c_ThighWxyz file temphighWall.dat
+fix myber2 UpperSurface temp/berendsen ${T} ${T} 100 
+fix_modify myber2 temp ThighWyz
+
+# Measure the graphene temperature
+compute Tgraxyz gra temp
+compute Tgray gra temp/partial 0 1 0
+compute Tgraz gra temp/partial 0 0 1
+compute Tgrayz gra temp/partial 0 1 1
+fix at4 all ave/time 10 10 100 c_Tgrayz c_Tgray c_Tgraz c_Tgraxyz file tempgra.dat
+
+fix sf1 ControlL setforce 0 NULL NULL 
+fix sf2 ControlU setforce 0 NULL NULL 
+
+velocity ControlL set v_mU NULL NULL 
+velocity ControlU set v_pU NULL NULL 
+
+# prevent system drift
+fix rc1 all recenter NULL NULL INIT
+fix mymom all momentum 100 linear 0 1 0
+
+# Run for (200 x 20ps)
+variable a loop 200
+label loop
+timestep 1
+thermo 100
+run 20000
+write_data data.equilibrium
+next a
+jump input.lammps loop
+
+
+
+
+
+
+
+
+
