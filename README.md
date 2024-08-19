@@ -1,4 +1,4 @@
-# Data and scripts from my recent publications
+# Data and scripts from my recent publications [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13341067.svg)](https://doi.org/10.5281/zenodo.13341067)
 
 If you use some of those data or script, please cite the relevant publication.
 When the data is hosted on a different open-source data service, a link is provided here.
