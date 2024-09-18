@@ -1,0 +1,42 @@
+# CuNiSiCr system
+
+variable T equal 1700
+
+units metal
+atom_style atomic
+boundary p p p
+read_data ../topology/topology.data
+
+pair_style mlip mlip.ini 
+pair_coeff * *
+
+replicate 5 5 5
+
+timestep 0.0005
+
+thermo 500
+
+fix mybrx all box/relax aniso 1
+minimize 0 1.0e-10 100 1000
+
+velocity all create ${T} 8864211 rot yes mom yes dist gaussian
+
+unfix mybrx
+fix mynve all nve
+fix myber all temp/berendsen ${T} ${T} 0.1
+
+run 10000
+unfix mynve
+unfix myber
+
+fix mynpt all npt temp ${T} ${T} 0.1 aniso 1 1 1 
+
+run 10000
+reset_timestep 0
+
+dump mydmp1 all atom 100 dump.wrapped.lammpstrj
+dump mydum2 all custom 100 dump.unwrapped.lammpstrj id type xu yu zu
+variable myvol equal vol
+fix myat1 all ave/time 10 10 100 v_myvol file volume.dat
+
+run 50000
