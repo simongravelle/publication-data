@@ -13,6 +13,8 @@ Journal xxxxxx
 This folder is associated with our 202X publication, in which we apply active
 learning to provide an insight to a quaternary material: Cu-Ni-Si-Cr alloys.
 
+![View](CuSiNiCr.jpeg)
+
 ### Potential
 
 The potential is located within the potential/ folder. It was used with the
