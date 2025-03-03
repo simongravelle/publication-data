@@ -1,0 +1,62 @@
+# LAMMPS input file
+
+boundary p p f
+units real
+atom_style full
+bond_style harmonic
+angle_style harmonic
+dihedral_style harmonic
+improper_style harmonic
+pair_style lj/cut/tip4p/long 4 5 4 8 0.1546 12
+kspace_style pppm/tip4p 1e-5
+kspace_modify slab 3.0 # compatible with non-neutral systems
+special_bonds lj 0.0 0.0 0.5 coul 0.0 0.0 1.0 angle yes dihedral yes
+
+# read data, parameters, and molecule files
+read_data configuration.data 
+include parameters.inc
+molecule water water.mol
+molecule hydronium hydronium.mol
+molecule hydroxide hydroxide.mol
+molecule bicarbonate bicarbonate.mol
+include groups.inc
+
+# prevent molecules from crossing the box boundaries in z
+fix wallhi all wall/lj126 zhi EDGE 1.0 3.0 3.367
+fix walllo all wall/lj126 zlo EDGE 1.0 3.0 3.367
+# maintain shape of water molecules and ions
+fix myshk all shake 1e-5 10 0 b 4 5 6 a 8 9 mol water
+
+# dynamics
+compute tSAM SAMm temp
+fix mynvt1 SAMm nvt temp 300 300 100
+fix_modify mynvt1 temp tSAM
+compute tH2O H2O temp
+fix mynvt2 H2O nvt temp 300 300 100
+fix_modify mynvt2 temp tH2O
+fix mynvi1 CHO3 rigid/nve molecule
+fix mynvi2 HO nve
+fix mynvi3 H3O nve
+
+# outputs
+dump mydmp all atom 5000 output.lammpstrj
+thermo 5000
+thermo_modify temp tH2O
+
+run 100000 # equilibration run (100 ps)
+
+# recenter ions at the start of the simulation (only done for practicality)
+variable x equal -xcm(ions,x)
+variable y equal -xcm(ions,y)
+displace_atoms all move ${x} ${y} 0.0
+
+# outputs
+compute mymsdi ions msd
+compute mymsdw H2O msd
+variable zpos equal xcm(ions,z)
+fix myat1 all ave/time 100 10 1000 v_zpos file ion_position.dat 
+fix myat2 all ave/time 10 1 10 c_mymsdi[1] c_mymsdi[2] c_mymsdi[3] c_mymsdi[4] file msdi.dat
+fix myat3 all ave/time 10 1 10 c_mymsdw[1] c_mymsdw[2] c_mymsdw[3] c_mymsdw[4] file msdw.dat
+fix myat4 all ave/time 100 10 1000 c_tH2O c_tSAM file temperature.dat
+
+run 500000 # production run (500 ps)

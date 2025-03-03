@@ -1,0 +1,25 @@
+# LAMMPS molecule file for hydroxide 
+# Created using atb2lammps 
+# https://github.com/simongravelle/atb2lammps
+
+2 atoms
+1 bonds
+
+Coords
+
+1 0.07195412 0.0 0.0 
+2 -0.9043175 0.0 0.0 
+
+Types
+
+1 6
+2 7 
+
+Charges
+
+1 -1.0 # hydroxyl 10.1063/1.4942771
+2 0.0 # hydroxyl 10.1063/1.4942771
+
+Bonds
+
+1 5 1 2 

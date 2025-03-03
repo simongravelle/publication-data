@@ -1,0 +1,40 @@
+# LAMMPS molecule file for hydronium 
+# Created using atb2lammps 
+# https://github.com/simongravelle/atb2lammps
+
+4 atoms
+3 bonds
+3 angles
+
+Coords
+
+1 -0.18210268 0.92061216 -0.25609788 
+2 -0.004323744 0.0047499905 0.06503295 
+3 0.8716431 -0.29138628 -0.2759587 
+4 -0.7089002 -0.60132515 -0.26810178 
+
+Types
+
+1 9 
+2 8 
+3 9
+4 9 
+
+Charges
+
+1 0.8 # hydronium 10.1063/1.4942771 
+2 -1.4 # hydronium 10.1063/1.4942771
+3 0.8 # hydronium 10.1063/1.4942771
+4 0.8 # hydronium 10.1063/1.4942771
+
+Bonds
+
+1 6 1 2 
+2 6 2 3 
+3 6 2 4 
+
+Angles
+
+1 9 1 2 3 
+2 9 1 2 4 
+3 9 3 2 4 
