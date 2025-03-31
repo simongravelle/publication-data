@@ -21,5 +21,5 @@ full terms at [CC BY 4.0 License](https://creativecommons.org/licenses/by/4.0/).
 Some projects have received funding from: 
 
 - the European Union's Horizon 2020 research and innovation programme
-under the Marie Skłodowska-Curie grant agreement No 101065060
+under the Marie Skłodowska-Curie **grant agreement No 101065060**
 - the French National Research Agency (ANR) through the **ANR ANR-24-CE06-5671  Microsep** project. 

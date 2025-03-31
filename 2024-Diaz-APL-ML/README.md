@@ -1,14 +1,14 @@
 # In silico design and prediction of metastable quaternary phases in Cu-Ni-Si-Cr alloys
 
-ArXiv: https://doi.org/10.48550/arXiv.2410.17879
-
-Accepted for publication by APL Machine Learning
-
-Publication Date: xxxxxx
+Publication Date: 2024
 
 Authors: Ángel Díaz Carral, Simon Gravelle, Maria Fyta
 
 Journal: APL Machine Learning
+
+ArXiv: https://doi.org/10.48550/arXiv.2410.17879
+
+DOI: https://doi.org/10.1063/5.0228936
 
 This folder is associated with our 2024 publication in APL Machine Learning, in which we apply active
 learning to provide an insight to a quaternary material: Cu-Ni-Si-Cr alloys.

@@ -4,3 +4,4 @@ Authors: Zouhir Benrahla, Tristan Saide, Louis Burnaz, Emilie Verneuil, Simon Gr
 
 Publication Date: submitted paper
 
+arXiv: https://arxiv.org/abs/2503.04987
