@@ -1,0 +1,72 @@
+# LAMMPS input file 
+
+variable mu equal -11.30
+
+boundary p p f
+units real
+atom_style full
+bond_style harmonic
+angle_style harmonic
+dihedral_style harmonic
+improper_style harmonic
+pair_style lj/cut/tip4p/long 4 5 4 8 0.1546 12
+kspace_style pppm/tip4p 1e-5
+kspace_modify slab 3.0
+special_bonds lj 0.0 0.0 0.5 coul 0.0 0.0 1.0 angle yes dihedral yes
+
+read_data init.data 
+include parameters.inc
+molecule water water.mol
+molecule hydronium hydronium.mol
+molecule hydroxide hydroxide.mol
+molecule bicarbonate bicarbonate.mol
+
+include groups.inc
+
+fix myshk all shake 1e-5 10 0 b 4 5 6 a 8 9 mol water
+fix wallhi all wall/lj126 zhi EDGE 1.0 3.0 3.367
+fix walllo all wall/lj126 zlo EDGE 1.0 3.0 3.367
+
+compute tSAM SAMm temp
+compute tH2O H2O temp
+compute_modify tH2O dynamic yes
+
+fix mynvt1 SAMm nvt temp 300 300 100
+fix_modify mynvt1 temp tSAM
+fix mynvt2 H2O nvt temp 300 300 100
+fix_modify mynvt2 temp tH2O
+#fix mynvi1 CHO3 rigid/nve molecule
+fix mynvi2 HO nve
+fix mynvi3 H3O nve
+
+variable zpos equal xcm(ions,z)
+variable oxygen atom type==4
+group oxygen dynamic all var oxygen
+variable nO equal count(oxygen)
+
+thermo 500
+thermo_modify temp tH2O
+
+run 5000
+
+variable tfac equal 5.0/3.0
+
+variable xlo equal xlo+0.5
+variable xhi equal xhi-0.5
+variable ylo equal ylo+0.5
+variable yhi equal yhi-0.5
+variable zhi equal zhi-2
+
+region myblk block ${xlo} ${xhi} ${ylo} ${yhi} 12 ${zhi}
+variable rdm2 equal ${rdm}+${a}
+fix fgcmc H2O gcmc 200 10 0 0 ${rdm2} 300 ${mu} 0.1 mol water &
+  tfac_insert ${tfac} shake myshk full_energy region myblk
+
+fix myat1 all ave/time 200 25 5000 v_zpos file ion_position${a}.dat 
+fix myat2 all ave/time 200 25 5000 v_nO f_fgcmc[3] f_fgcmc[4] f_fgcmc[5] f_fgcmc[6] file molecule_number${a}.dat
+fix myat3 all ave/time 200 25 5000 c_tH2O c_tSAM file temperature${a}.dat
+
+thermo_style custom step temp etotal v_nO f_fgcmc[3] f_fgcmc[4] f_fgcmc[5] f_fgcmc[6]
+
+run 100000
+write_data final.data
