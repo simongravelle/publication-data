@@ -35,7 +35,7 @@ fix mynvt1 SAMm nvt temp 300 300 100
 fix_modify mynvt1 temp tSAM
 fix mynvt2 H2O nvt temp 300 300 100
 fix_modify mynvt2 temp tH2O
-#fix mynvi1 CHO3 rigid/nve molecule
+# fix mynvi1 CHO3 rigid/nve molecule # uncomment for CHO3 simulation
 fix mynvi2 HO nve
 fix mynvi3 H3O nve
 
